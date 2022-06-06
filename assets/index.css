@@ -1,0 +1,75 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  max-width: 800px;
+  margin: auto;
+  background-color: rgb(166, 0, 0);
+}
+
+.memory-game {
+  height: 640px;
+  width: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px; /* user perspective on the z axis */
+}
+
+.card {
+  height: calc( 33.333% - 10px);
+  width: calc(25% - 10px);
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  border-radius: 10px;
+  position: relative;
+  background-color: rgb(30, 42, 176);
+  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+  cursor: pointer;
+  transform: scale(1);
+  transform-style: preserve-3d; 
+  transition: transform .6s; /* adds movement effect on the card flip */
+}
+
+.card:active{
+  transform: scale(0.97);
+  transition: transform .2s;
+}
+
+.card-front,
+.card-back {
+width: 100%;
+padding: 20px;
+position: absolute;
+border-radius: 5px;
+backface-visibility: hidden; 
+}
+
+.card-front {
+  transform: rotateY(180deg); 
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+footer {
+  background-color: #212121;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  padding: 10px;
+  background-color: #7f0000;
+  color: whitesmoke;
+  border: none;
+  cursor: pointer;
+}
